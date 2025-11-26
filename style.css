@@ -24,6 +24,8 @@ body {
 .navbar .logo {
   font-size: 1.5em;
   font-weight: bold;
+  display: flex;
+  align-items: center;
 }
 
 .navbar ul {
@@ -173,4 +175,9 @@ footer {
             padding: 0;
             box-sizing: border-box;
             font-family: "Kanit", sans-serif;  
+}
+
+.navbar .logo img {
+    height: 1em; /* ให้สูงเท่ากับฟอนต์ SaveEarth’s */
+    margin-right: 8px; /* เว้นระยะนิดหน่อย */
 }

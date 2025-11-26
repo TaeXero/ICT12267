@@ -48,6 +48,16 @@
             transition: color 0.3s;
         }
 
+        .navbar .logo {
+    display: flex;
+    align-items: center;
+    font-size: 24px; /* ปรับขนาดฟอนต์ SaveEarth’s ได้ที่นี่ */
+}
+
+.navbar .logo img {
+    height: 1em; /* ให้สูงเท่ากับฟอนต์ SaveEarth’s */
+    margin-right: 8px; /* เว้นระยะนิดหน่อย */
+}
         .navbar a:hover,
         .navbar a.active {
             color: #ffd166;
@@ -65,7 +75,7 @@
 
 <body>
     <header class="navbar">
-        <div class="logo">SaveEarth’s</div>
+        <div class="logo"><img src="img/new_logo_spu07.png" alt="">SaveEarth’s</div>
         <nav>
             <ul>
                 <li><a href="index.html">หน้าแรก</a></li>
@@ -86,7 +96,7 @@
         <span class="slider" id="slider7"></span>
         <div class="imgContainer">
             <div class="slide_div" id="slide_1">
-                <img src="img/68114030.png" alt="" class="img" id="img1">
+                <img src="img/68114030.jpg" alt="" class="img" id="img1">
                 <a href="#slider1" class="button" id="button1"></a>
                 <p class="caption">นายพงศ์ศิริ พัตสุวรรณ 68114030</p>
             </div>
