@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SaveEarth’s | เสือดาวอามูร์</title>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit&display=swap" rel="stylesheet">
+    
+    <style>
+        /* ใช้ฟอนต์ Kanit สำหรับตัวหนังสือทั้งหมด */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Kanit", sans-serif;
+        }
+
+        body {
+            background-color: #f6f6f6;
+            color: #222;
+        }
+
+        /* Navbar (เมนูบาร์) */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #184e27;
+            color: white;
+            padding: 15px 50px;
+        }
+
+        .navbar .logo {
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+
+        .navbar ul {
+            list-style: none;
+            display: flex;
+            gap: 25px;
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .navbar a:hover,
+        .navbar a.active {
+            color: #ffd166;
+        }
+
+        /* การจัดการวิดีโอ */
+        .video-container {
+            position: relative;
+            width: 100%;
+            height: 60vh; /* ขนาดของวิดีโอ */
+            overflow: hidden;
+        }
+
+                /* วิดีโอที่ทำให้มันเต็มพื้นที่ */
+        .video-container video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* การเพิ่มเอฟเฟกต์จางที่ขอบด้านล่างของวิดีโอ */
+        .video-container::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 20%; /* ปรับตามต้องการ */
+            background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 100%);
+            pointer-events: none; /* ทำให้ไม่รบกวนการคลิก */
+        }
+
+        /* ข้อความที่อยู่ตรงกลางของวิดีโอ */
+        .card-container {
+    display: grid; /* ใช้ grid layout */
+    grid-template-columns: repeat(5, 1fr); /* แสดงการ์ดใน 5 คอลัมน์ */
+    gap: 20px; /* ระยะห่างระหว่างการ์ด */
+    padding: 20px; /* เว้นขอบ */
+    justify-items: center; /* จัดการ์ดให้อยู่ตรงกลางของแต่ละคอลัมน์ */
+}
+
+        .center-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 2em;
+            font-weight: bold;
+            color: white;
+            text-align: center;
+            z-index: 10;
+        }
+
+        /* การ์ดแสดงข้อมูลสัตว์ */
+        .card {
+            background-color: white;
+            border-radius: 8px;
+            width: 250px;
+            margin: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+        }
+
+        .card img {
+            width: 100%;
+            height: 50%;
+        }
+
+        .card-content {
+            padding: 10px;
+        }
+
+        .card h3 {
+            font-size: 20px;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .card p {
+            color: #555;
+            margin-bottom: 15px;
+        }
+
+        .learn-more {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #3498db;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 500;
+            transition: background-color 0.3s;
+        }
+
+        .learn-more:hover {
+            background-color: #2980b9;
+        }
+
+    </style>
+</head>
+
+<body>
+    <header class="navbar">
+        <div class="logo">SaveEarth’s</div>
+        <nav>
+            <ul>
+                <li><a href="index.html">หน้าแรก</a></li>
+                <li><a href="animals.html" class="active">รายชื่อสัตว์</a></li>
+                <li><a href="contact.html">ติดต่อ</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- วิดีโอที่มีการจางที่ขอบด้านล่าง -->
+        <div class="video-container">
+            <video autoplay muted loop>
+                <source src="video/Loop for Aquatic Animals.mp4" type="video/mp4">
+            </video>
+            <div class="center-text">
+                สัตว์น้ำ (Aquatic Animals)
+            </div>
+        </div>
+
+        <!-- การ์ดข้อมูลสัตว์ -->
+        <!-- การ์ดแสดงข้อมูลสัตว์ (ห้าใบในแถวเดียว) -->
+        <div class="card-container">
+            <!-- การ์ดที่ 1 -->
+            <div class="card">
+                <img src="img/Aquatic Animals/Leatherback Sea Turtle.jpg" alt="Shark">
+                <div class="card-content">
+                    <h3>Leatherback Sea Turtle</h3>
+                    <p>เต่ามะเฟือง</p>
+                    <a href="Leatherback Sea Turtle.html" class="learn-more">Learn More</a>
+                </div>
+            </div>
+            <!-- การ์ดที่ 2 -->
+            <div class="card">
+                <img src="img/Aquatic Animals/Dugong.jpg" alt="Dolphin">
+                <div class="card-content">
+                    <h3>Dugong</h3>
+                    <p>พะยูน</p>
+                    <a href="Dugong.html" class="learn-more">Learn More</a>
+                </div>
+            </div>
+            <!-- การ์ดที่ 3 -->
+            <div class="card">
+                <img src="img/Aquatic Animals/Irrawaddy Dolphin.jpg" alt="Whale">
+                <div class="card-content">
+                    <h3>Irrawaddy Dolphin</h3>
+                    <p>โลมาหัวบาตร</p>
+                    <a href="Irrawaddy Dolphin.html" class="learn-more">Learn More</a>
+                </div>
+            </div>
+            <!-- การ์ดที่ 4 -->
+            <div class="card">
+                <img src="img/Aquatic Animals/Blue Whale.jpg" alt="Turtle">
+                <div class="card-content">
+                    <h3>Blue Whale</h3>
+                    <p>ปลาวาฬสีน้ำเงิน</p>
+                    <a href="Blue Whale.html" class="learn-more">Learn More</a>
+                </div>
+            </div>
+            <!-- การ์ดที่ 5 -->
+            <div class="card">
+                <img src="img/Aquatic Animals/Whale Shark.jpg" alt="Seal">
+                <div class="card-content">
+                    <h3>Whale Shark</h3>
+                    <p>ฉลามวาฬ</p>
+                    <a href="Whale Shark.html" class="learn-more">Learn More</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- การ์ดแสดงข้อมูลสัตว์ (แถวที่สอง) -->
+        <div class="card-container">
+            <!-- การ์ดที่ 6 -->
+            <div class="card">
+                <img src="img/Aquatic Animals/Humphead Parrotfish.jpg" alt="Penguin">
+                <div class="card-content">
+                    <h3>Humphead Parrotfish</h3>
+                    <p>ปลานกแก้วหัวโขน</p>
+                    <a href="Humphead Parrotfish.html" class="learn-more">Learn More</a>
+                </div>
+            </div>
+            <!-- การ์ดที่ 7 -->
+            <div class="card">
+                <img src="img/Aquatic Animals/Staghorn Coral.jpg" alt="Octopus">
+                <div class="card-content">
+                    <h3>Staghorn Coral</h3>
+                    <p>ปะการังเขากวาง</p>
+                    <a href="Staghorn Coral.html" class="learn-more">Learn More</a>
+                </div>
+            </div>
+            <!-- การ์ดที่ 8 -->
+            <div class="card">
+                <img src="img/Aquatic Animals/Oceanic Whitetip Shark.jpg" alt="Starfish">
+                <div class="card-content">
+                    <h3>Oceanic Whitetip Shark</h3>
+                    <p>ปลาฉลามครีบขาวมหาสมุทร</p>
+                    <a href="Oceanic Whitetip Shark.html" class="learn-more">Learn More</a>
+                </div>
+            </div>
+            <!-- การ์ดที่ 9 -->
+            <div class="card">
+                <img src="img/Aquatic Animals/Zebra Shark.jpg" alt="Jellyfish">
+                <div class="card-content">
+                    <h3>Zebra Shark</h3>
+                    <p>ปลาฉลามเสือดาว</p>
+                    <a href="Zebra Shark.html" class="learn-more">Learn More</a>
+                </div>
+            </div>
+            <!-- การ์ดที่ 10 -->
+            <div class="card">
+                <img src="img/Aquatic Animals/Bottlenose Dolphin.jpg" alt="Crab">
+                <div class="card-content">
+                    <h3>Bottlenose Dolphin</h3>
+                    <p>ปลาโลมาปากขวด</p>
+                    <a href="Bottlenose Dolphin.html" class="learn-more">Learn More</a>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

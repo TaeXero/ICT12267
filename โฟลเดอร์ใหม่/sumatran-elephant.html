@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SaveEarth’s | ช้างสุมาตรา</title>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit&display=swap" rel="stylesheet">
+    
+    <style>
+        /* ใช้ Kanit เป็นฟอนต์หลัก */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Kanit", sans-serif;  
+        }
+
+        body {
+            background-color: #f6f6f6;
+            color: #222;
+        }
+
+        /* Navbar (โค้ดเดิมของผู้ใช้) */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #184e27;
+            color: white;
+            padding: 15px 50px;
+        }
+
+        .navbar .logo {
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+
+        .navbar ul {
+            list-style: none;
+            display: flex;
+            gap: 25px;
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .navbar a:hover,
+        .navbar a.active {
+            color: #ffd166;
+        }
+
+        /* ------------------ NEW CSS: CONTENT STYLING ------------------ */
+        .animal-detail {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 30px;
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .detail-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .detail-header h1 {
+            color: #184e27;
+            font-size: 2.8em;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        .status-badge {
+            display: inline-block;
+            background-color: #c9302c; /* Danger Red for Critically Endangered */
+            color: white;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 1.1em;
+            margin-top: 10px;
+        }
+
+        .detail-image {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 30px;
+        }
+
+        .detail-section h2 {
+            color: #184e27;
+            font-size: 1.8em;
+            border-left: 5px solid #ffd166;
+            padding-left: 10px;
+            margin-bottom: 15px;
+        }
+
+        .detail-section p {
+            line-height: 1.8;
+            margin-bottom: 20px;
+            text-align: justify;
+        }
+
+        .fact-list {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .fact-list li {
+            margin-bottom: 10px;
+            padding-left: 25px;
+            position: relative;
+            line-height: 1.6;
+            font-weight: 500;
+        }
+
+        .fact-list li::before {
+            content: '🐘'; /* ใช้ช้าง */
+            position: absolute;
+            left: 0;
+            color: #184e27;
+        }
+    </style>
+
+</head>
+
+<body>
+    <header class="navbar">
+        <div class="logo">SaveEarth’s</div>
+        <nav>
+            <ul>
+                <li><a href="index.html">หน้าแรก</a></li>
+                <li><a href="animals.html" class="active">รายชื่อสัตว์</a></li>
+                <li><a href="news.html">ข่าวสาร</a></li>
+                <li><a href="contact.html">ติดต่อ</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main class="animal-detail">
+        <div class="detail-header">
+            <h1>ช้างสุมาตรา (Sumatran Elephant)</h1>
+            <div class="status-badge">สถานะ IUCN: เสี่ยงขั้นวิกฤติต่อการสูญพันธุ์ (CR)</div>
+        </div>
+        
+        <img src="https://www.animalspot.net/wp-content/uploads/2019/02/Sumatran-Elephant-Image.jpg" alt="ภาพช้างสุมาตรา" class="detail-image"/>
+
+        <div class="detail-section">
+            <h2>ความเป็นมาและถิ่นที่อยู่</h2>
+            <p>
+                <strong>ช้างสุมาตรา (Elephas maximus sumatranus)</strong> เป็นช้างเอเชียชนิดย่อยที่มีถิ่นกำเนิดเฉพาะบน<strong>เกาะสุมาตรา ประเทศอินโดนีเซีย</strong>เท่านั้น พวกมันมีขนาดเล็กที่สุดในบรรดาช้างเอเชียทั้งหมด ประชากรในธรรมชาติคาดว่าเหลืออยู่ไม่เกิน 2,800 ตัว เนื่องจากสูญเสียถิ่นที่อยู่ไปมากกว่า 70% ในช่วงเวลาสั้น ๆ เพียง 25 ปี
+            </p>
+        </div>
+
+        <div class="detail-section">
+            <h2>ลักษณะและพฤติกรรมเด่น</h2>
+            <ul class="fact-list">
+                <li><strong>สปีชีส์ย่อยขนาดเล็ก:</strong> ช้างสุมาตรามีขนาดเล็กกว่าช้างเอเชียชนิดย่อยอื่น ๆ รวมถึงมีใบหูที่ใหญ่กว่าเล็กน้อยเมื่อเทียบกับขนาดตัว</li>
+                <li><strong>ผู้กระจายเมล็ดพันธุ์:</strong> พวกมันมีบทบาทสำคัญอย่างยิ่งในการช่วยรักษาสภาพแวดล้อมป่าฝน โดยการกินผลไม้และกระจายเมล็ดพันธุ์ไปทั่วพื้นที่ผ่านมูลของมัน</li>
+                <li><strong>งา:</strong> โดยทั่วไปแล้ว ช้างเพศผู้เท่านั้นที่มีงายาวที่เห็นได้ชัดเจน แต่ก็มีช้างเพศเมียบางตัวที่มีงาสั้นมาก ๆ</li>
+            </ul>
+        </div>
+        
+        <div class="detail-section">
+            <h2>ภัยคุกคามและการอนุรักษ์</h2>
+            <p>
+                สาเหตุหลักของการลดลงของประชากรคือ **การบุกรุกป่าและทำลายถิ่นที่อยู่** เพื่อขยายพื้นที่สำหรับสวนปาล์มน้ำมันและอุตสาหกรรมเยื่อกระดาษ (Pulpwood) นอกจากนี้ยังมีการ **ลักลอบล่า** เพื่อตัดงา ซึ่งเป็นภัยคุกคามร้ายแรงที่ทำให้ช้างตัวผู้ที่มีขนาดใหญ่หายไปจากป่าอย่างรวดเร็ว
+            </p>
+        </div>
+    </main>
+    </body>
+</html>

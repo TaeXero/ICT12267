@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>นกแก้วคาคาโป (Kakapo) </title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Kanit&display=swap" rel="stylesheet">
+    
+    <style>
+        /* ใช้ Kanit เป็นฟอนต์หลัก */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Kanit", sans-serif;  
+        }
+
+        body {
+            background-color: #f6f6f6;
+            color: #222;
+        }
+
+        /* Navbar (โค้ดเดิมของผู้ใช้) */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #184e27;
+            color: white;
+            padding: 15px 50px;
+        }
+
+        .navbar .logo {
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+
+        .navbar ul {
+            list-style: none;
+            display: flex;
+            gap: 25px;
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .navbar a:hover,
+        .navbar a.active {
+            color: #ffd166;
+        }
+
+        /* ------------------ NEW CSS: CONTENT STYLING ------------------ */
+        .animal-detail {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 30px;
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .detail-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .detail-header h1 {
+            color: #184e27;
+            font-size: 2.8em;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        .status-badge {
+            display: inline-block;
+            background-color: #c9302c; /* Danger Red for Critically Endangered */
+            color: white;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 1.1em;
+            margin-top: 10px;
+        }
+
+        .detail-image {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 30px;
+        }
+
+        .detail-section h2 {
+            color: #184e27;
+            font-size: 1.8em;
+            border-left: 5px solid #ffd166;
+            padding-left: 10px;
+            margin-bottom: 15px;
+        }
+
+        .detail-section p {
+            line-height: 1.8;
+            margin-bottom: 20px;
+            text-align: justify;
+        }
+
+        .fact-list {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .fact-list li {
+            margin-bottom: 10px;
+            padding-left: 25px;
+            position: relative;
+            line-height: 1.6;
+            font-weight: 500;
+        }
+
+        .fact-list li::before {
+            content: '🐾'; /* ใช้เท้าสัตว์ */
+            position: absolute;
+            left: 0;
+            color: #184e27;
+        }
+    </style>
+
+</head>
+
+<body>
+    <header class="navbar">
+        <div class="logo">SaveEarth’s</div>
+        <nav>
+            <ul>
+                <li><a href="index.html">หน้าแรก</a></li>
+                <li><a href="animals.html" class="active">รายชื่อสัตว์</a></li>
+                <li><a href="contact.html">ติดต่อ</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main class="animal-detail">
+        <div class="detail-header">
+            <h1>นกแก้วคาคาโป (Kakapo) </h1>
+            <div class="status-badge">สถานะ IUCN: ใกล้สูญพันธุ์อย่างยิ่ง (Critically Endangered – CR) </div>
+        </div>
+        
+        <img src="https://fishingthai.com/wp-content/uploads/2022/04/snap2132.jpg" alt="ภาพเสือดาวอามูร์" class="detail-image"/>
+
+        <div class="detail-section">
+            <h2>ความเป็นมาและถิ่นที่อยู่</h2>
+            <p>
+                <strong>นกแก้วคาคาโป (Kakapo) </strong>  เป็น นกแก้วตัวใหญ่ที่สุดและบินไม่ได้ อาศัยเฉพาะ นิวซีแลนด์ 
+เคยพบในป่าดิบและป่าชายฝั่งทั้งหมดของนิวซีแลนด์ แต่ปัจจุบันอยู่ในเกาะป้องกันที่ควบคุมโดยเจ้าหน้าที่เพื่อป้องกันผู้ล่าธรรมชาติ เช่น แมวและหนู 
+            </p>
+        </div>
+
+        <div class="detail-section">
+            <h2>ลักษณะและพฤติกรรมเด่น</h2>
+            <ul class="fact-list">
+                <li><strong> ขนาดใหญ่และบินไม่ได้ :</strong>ยาวประมาณ 60 ซม. น้ำหนัก 2–4 กิโลกรัมตัวใหญ่ ขนสีเขียวลายจุดเหมาะกับการพรางตัวในป่า </li>
+                <li><strong>พฤติกรรมกลางคืน:</strong>ออกหากินเวลากลางคืน (nocturnal) และพักกลางวันในโพรงต้นไม้หรือพุ่มไม้กิน พืช ผลไม้ ถั่ว และเมล็ดพืช </li>
+                <li><strong>ระบบสืบพันธุ์พิเศษ :</strong>เพศผู้สร้าง “lek” พื้นที่แสดงเพื่อดึงดูดเพศเมียวางไข่เพียง 1–3 ฟองต่อปี และฟักนานประมาณ 30 วัน </li>
+                <li><strong>อาศัยเดี่ยว :</strong>มักอาศัยเดี่ยว มีนิสัยสงบและชอบความเป็นส่วนตัว </li>
+        </div>
+        
+        <div class="detail-section">
+            <h2>ภัยคุกคามและการอนุรักษ์</h2>
+            <p>
+               ตว์นักล่าที่มนุษย์นำเข้ามา เช่น แมว หนู และพอสซัม 
+
+การทำลายที่อยู่อาศัยป่า 
+
+อัตราการสืบพันธุ์ต่ำและโตช้า 
+
+ความพยายามอนุรักษ์ประกอบด้วย: 
+
+การย้ายไปเกาะปลอดภัยและการควบคุมผู้ล่า 
+
+การฟักและเพาะเลี้ยงในพื้นที่ควบคุม (conservation breeding) 
+
+การติดตามประชากรด้วยแท็กและเทคโนโลยี GPS 
+    </main>
+    </body>
+</html>

@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SaveEarth’s | เสือโคร่ง </title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Kanit&display=swap" rel="stylesheet">
+    
+    <style>
+        /* ใช้ Kanit เป็นฟอนต์หลัก */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Kanit", sans-serif;  
+        }
+
+        body {
+            background-color: #f6f6f6;
+            color: #222;        
+        }
+
+        /* Navbar (โค้ดเดิมของผู้ใช้) */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #184e27;
+            color: white;
+            padding: 15px 50px;
+        }
+
+        .navbar .logo {
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+
+        .navbar ul {
+            list-style: none;
+            display: flex;
+            gap: 25px;
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .navbar a:hover,
+        .navbar a.active {
+            color: #ffd166;
+        }
+
+        /* ------------------ NEW CSS: CONTENT STYLING ------------------ */
+        .animal-detail {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 30px;
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .detail-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .detail-header h1 {
+            color: #184e27;
+            font-size: 2.8em;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        .status-badge {
+            display: inline-block;
+            background-color: #c9302c; /* Danger Red for Critically Endangered */
+            color: white;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 1.1em;
+            margin-top: 10px;
+        }
+
+        .detail-image {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 30px;
+        }
+
+        .detail-section h2 {
+            color: #184e27;
+            font-size: 1.8em;
+            border-left: 5px solid #ffd166;
+            padding-left: 10px;
+            margin-bottom: 15px;
+        }
+
+        .detail-section p {
+            line-height: 1.8;
+            margin-bottom: 20px;
+            text-align: justify;
+        }
+
+        .fact-list {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .fact-list li {
+            margin-bottom: 10px;
+            padding-left: 25px;
+            position: relative;
+            line-height: 1.6;
+            font-weight: 500;
+        }
+
+        .fact-list li::before {
+            content: '🐾'; /* ใช้เท้าสัตว์ */
+            position: absolute;
+            left: 0;
+            color: #184e27;
+        }
+    </style>
+
+</head>
+
+<body>
+    <header class="navbar">
+        <div class="logo">SaveEarth’s</div>
+        <nav>
+            <ul>
+                <li><a href="index.html">หน้าแรก</a></li>
+                <li><a href="animals.html" class="active">รายชื่อสัตว์</a></li>
+                <li><a href="contact.html">ติดต่อ</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main class="animal-detail">
+        <div class="detail-header">
+            <h1>เสือโคร่ง (Tiger)</h1>
+            <div class="status-badge">สถานะ IUCN: เสี่ยงต่อการสูญพันธุ์ (EN)</div>
+        </div>
+        
+        <img src="https://upload.wikimedia.org/wikipedia/commons/3/3f/Walking_tiger_female.jpg" alt="ภาพเสือดาวอามูร์" class="detail-image"/>
+
+        <div class="detail-section">
+            <h2>ความเป็นมาและถิ่นที่อยู่</h2>
+            <p>
+                <strong>เสือโคร่ง (Panthera tigris)</strong> เป็นแมวใหญ่ที่มีขนาดใหญ่ที่สุดในโลก เคยกระจายพันธุ์กว้างทั่วเอเชีย แต่ประชากรลดลงอย่างรวดเร็วจากการล่าและการสูญเสียป่า ปัจจุบันพบในบางพื้นที่ของ:
+ถิ่นอาศัยที่เหมาะสมเป็นป่าทึบ ป่าดิบ ป่าสน และหนองบึง
+
+ลักษณะและพฤติกรรมเด่น
+            </p>
+        </div>
+
+        <div class="detail-section">
+            <h2>ลักษณะและพฤติกรรมเด่น</h2>
+            <ul class="fact-list">
+                <li><strong>ความพิเศษของเขา:</strong> ลายดำบนพื้นสีส้มสลับขาวเป็นเอกลักษณ์ ลายไม่ซ้ำกันเหมือนลายนิ้วมือ เป็นสัตว์ที่ว่ายน้ำเก่งที่สุดในตระกูลแมว</li>
+                <li><strong>ความพิเศษทางพฤติกรรม:</strong> ใช้ชีวิตตามลำพัง ยกเว้นฤดูผสมพันธุ์ ล่าโดยซุ่มโจมตี ใช้พละกำลังพุ่งเข้าจู่โจมเหยื่อ</li>
+                <li><strong>น้ำหนัก:</strong> น้ำหนักระหว่าง 100–300 กก. (เพศผู้ใหญ่กว่าเพศเมียมาก)</li>
+            </ul>
+        </div>
+        
+        <div class="detail-section">
+            <h2>ภัยคุกคามและการอนุรักษ์</h2>
+            <p>การล่า เพื่อนำชิ้นส่วนไปใช้ในตลาดมืด
+การทำลายป่า ทำให้พื้นที่ล่าหายไป
+มนุษย์บุกรุกพื้นที่ป่า เกิดความขัดแย้งคน–สัตว์
+การอนุรักษ์
+โครงการป้องกันการล่าและลาดตระเวน
+อนุรักษ์ป่าและพื้นที่เชื่อมต่ออาศัย
+โครงการเพิ่มประชากรเสือโคร่ง (Project Tiger – อินเดีย)
+ใช้กล้องดักถ่ายติดตามประชากร
+
+            </p>
+        </div>
+    </main>
+    </body>
+</html>

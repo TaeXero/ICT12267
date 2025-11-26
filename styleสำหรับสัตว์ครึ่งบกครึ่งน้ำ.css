@@ -1,0 +1,144 @@
+/* 1. ตั้งค่าฟอนต์สำหรับทั้งหน้าเว็บ */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Kanit", sans-serif;  /* ใช้ฟอนต์ Kanit */
+}
+
+/* 2. การตั้งค่าสำหรับ body */
+body {
+    background-color: #f6f6f6; /* ตั้งสีพื้นหลัง */
+    color: #222;  /* สีตัวหนังสือ */
+}
+
+/* 3. การตั้งค่าสำหรับ Navbar (เมนูบาร์) */
+.navbar {
+    display: flex; /* ใช้ flexbox เพื่อจัดการ layout */
+    justify-content: space-between; /* จัดเรียงรายการเมนูให้ห่างกัน */
+    align-items: center; /* จัดตำแหน่งของ items ให้อยู่ตรงกลาง */
+    background-color: #184e27; /* สีพื้นหลังของ navbar */
+    color: white; /* สีตัวหนังสือ */
+    padding: 15px 50px; /* เว้นขอบด้านใน */
+}
+
+.navbar .logo {
+    font-size: 1.5em; /* ขนาดของโลโก้ */
+    font-weight: bold; /* ให้ตัวหนังสือหนา */
+}
+
+.navbar ul {
+    list-style: none; /* เอาจุดของรายการออก */
+    display: flex; /* ใช้ flexbox เพื่อจัดรายการในแนวนอน */
+    gap: 25px; /* ระยะห่างระหว่างรายการ */
+}
+
+.navbar a {
+    color: white; /* สีตัวหนังสือ */
+    text-decoration: none; /* เอาขีดเส้นใต้ */
+    transition: color 0.3s; /* เอฟเฟกต์เปลี่ยนสี */
+}
+
+.navbar a:hover,
+.navbar a.active {
+    color: #ffd166; /* สีเมื่อเอาเมาส์ไปวางหรือเมื่อเป็นลิงค์ที่เลือก */
+}
+
+/* 4. การตั้งค่าสำหรับ Video Container */
+.video-container {
+    position: relative; /* ใช้เพื่อควบคุมการจัดตำแหน่งของเนื้อหาภายใน */
+    width: 100%;
+    height: 60vh; /* ความสูงของวิดีโอ (60% ของความสูงหน้าจอ) */
+    overflow: hidden; /* ซ่อนส่วนเกิน */
+}
+
+.video-container {
+    position: relative; /* ใช้เพื่อควบคุมการจัดตำแหน่งของเนื้อหาภายใน */
+    width: 100%;
+    height: 60vh; /* ความสูงของวิดีโอ (60% ของความสูงหน้าจอ) */
+    overflow: hidden; /* ซ่อนส่วนเกิน */
+}
+
+/* 5. การเพิ่มเอฟเฟกต์จางที่ขอบล่างของวิดีโอ */
+.video-container::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 20%; /* ปรับขนาดของเอฟเฟกต์จาง */
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 100%);
+    pointer-events: none; /* ทำให้ไม่รบกวนการคลิก */
+}
+
+/* 6. ข้อความที่อยู่ตรงกลางของวิดีโอ */
+.center-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* จัดตำแหน่งให้ข้อความอยู่กลาง */
+    font-size: 2em; /* ขนาดของข้อความ */
+    font-weight: bold; /* ทำให้ตัวหนา */
+    color: white; /* สีข้อความ */
+    text-align: center;
+    z-index: 10; /* จัดลำดับให้ข้อความอยู่เหนือวิดีโอ */
+}
+
+/* 7. การ์ดแสดงข้อมูลสัตว์ */
+.card-container {
+    display: grid; /* ใช้ grid layout */
+    grid-template-columns: repeat(5, 1fr); /* แสดงการ์ดใน 5 คอลัมน์ */
+    gap: 20px; /* ระยะห่างระหว่างการ์ด */
+    padding: 20px; /* เว้นขอบ */
+    justify-items: center; /* จัดการ์ดให้อยู่ตรงกลางของแต่ละคอลัมน์ */
+}
+
+/* การตั้งค่าสำหรับการ์ดแต่ละใบ */
+.card {
+    background-color: white;
+    border-radius: 8px; /* มุมของการ์ดให้มน */
+    width: 100%;
+    max-width: 300px; /* กำหนดขนาดสูงสุดของการ์ด */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* เงาของการ์ด */
+    overflow: hidden;
+    transition: transform 0.3s ease; /* เอฟเฟกต์เมื่อเอาเมาส์ไปวางบนการ์ด */
+}
+
+.card:hover {
+    transform: translateY(-10px); /* การ์ดยกขึ้นเล็กน้อยเมื่อเมาส์ไปวาง */
+}
+
+.card img {
+    width: 100%;
+    height: auto;
+}
+
+.card-content {
+    padding: 20px; /* เว้นระยะภายในการ์ด */
+}
+
+.card h3 {
+    font-size: 24px; /* ขนาดของหัวข้อ */
+    margin-bottom: 10px;
+    font-weight: 600; /* ตัวหนา */
+}
+
+.card p {
+    color: #555; /* สีของข้อความ */
+    margin-bottom: 15px;
+}
+
+.learn-more {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #3498db; /* สีพื้นหลังปุ่ม */
+    color: white; /* สีตัวหนังสือ */
+    text-decoration: none; /* เอาขีดเส้นใต้ */
+    border-radius: 5px;
+    font-weight: 500; /* ขนาดตัวหนาปานกลาง */
+    transition: background-color 0.3s; /* เปลี่ยนสีพื้นหลังเมื่อเอาเมาส์ไปวาง */
+}
+
+.learn-more:hover {
+    background-color: #2980b9; /* สีพื้นหลังเมื่อเอาเมาส์ไปวาง */
+}

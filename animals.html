@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SaveEarth’s | เสือดาวอามูร์</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Kanit&display=swap" rel="stylesheet">
+    
+    <style>
+        /* ใช้ Kanit เป็นฟอนต์หลัก */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Kanit", sans-serif;  
+        }
+
+        body {
+            background-color: #f6f6f6;
+            color: #222;
+        }
+
+        /* Navbar (โค้ดเดิมของผู้ใช้) */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #184e27;
+            color: white;
+            padding: 15px 50px;
+        }
+
+        .navbar .logo {
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+
+        .navbar ul {
+            list-style: none;
+            display: flex;
+            gap: 25px;
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .navbar a:hover,
+        .navbar a.active {
+            color: #ffd166;
+        }
+        .animal-section {
+  padding: 40px;
+  text-align: center;
+}
+
+
+main {
+            font-family: Arial, sans-serif;
+            background-color: #f8f8f8;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* จัดให้อยู่ตรงกลางหน้า */
+        }
+
+        header h1 {
+            font-size: 2em;
+            color: #333;
+            margin-bottom: 30px;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        /* ภาชนะหลักสำหรับจัดเรียงรูปภาพ */
+        .animal-container {
+            display: grid;
+            /* สร้างตาราง 2 คอลัมน์ (column) ที่มีขนาดเท่ากัน */
+            grid-template-columns: 1fr 1fr;
+            /* กำหนดระยะห่างระหว่างรูปภาพทั้งแนวตั้งและแนวนอน */
+            gap: 30px; 
+            /* จำกัดความกว้างสูงสุดของคอนเทนเนอร์เพื่อให้ดูดีบนหน้าจอขนาดใหญ่ */
+            max-width: 1200px; 
+            width: 100%;
+        }
+
+        /* สไตล์สำหรับกล่องรูปภาพแต่ละกล่อง */
+        .animal-card {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            overflow: hidden; 
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        /* เมื่อนำเมาส์ไปชี้ที่รูปภาพ */
+        .animal-card:hover {
+            transform: translateY(-5px); 
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        /* สไตล์สำหรับรูปภาพ */
+        .animal-card img {
+            width: 100%; 
+            /* ความสูงของรูปภาพที่กำหนดเพื่อให้ดูใหญ่ */
+            height: 350px; 
+            object-fit: cover; /* ครอบตัดรูปภาพให้เต็มพื้นที่ */
+            display: block;
+        }
+
+        /* สไตล์สำหรับหัวข้อ */
+        .animal-card h2 {
+            font-size: 1.5em;
+            color: #007bff;
+            padding: 15px 10px;
+            margin: 0;
+            text-transform: uppercase;
+        }
+
+        header h1 {
+    font-size: 2em; /* ขนาดตัวอักษรใหญ่ */
+    color: #333;
+    margin-bottom: 30px;
+    text-align: center; /* จัดกึ่งกลาง */
+    font-weight: bold;
+}
+
+    </style>
+
+</head>
+
+<body>
+    <header class="navbar">
+        <div class="logo">SaveEarth’s</div>
+        <nav>
+            <ul>
+                <li><a href="index.html">หน้าแรก</a></li>
+                <li><a href="animals.html" class="active">รายชื่อสัตว์</a></li>
+                <li><a href="contact.html">ติดต่อ</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h1>ประเภทของสัตว์ (ANIMALS TYPES)</h1>
+    <div class="animal-container">
+        <div class="animal-card">
+            <a href="สัตว์บก.html"> <img src="img/Land Animals menu.png" alt="สัตว์บก (Land Animals)"> </a>
+            <h2>สัตว์บก (Land Animals)
+</h2>
+        </div>
+
+        <div class="animal-card">
+            <a href="สัตว์น้ำ.html"> <img src="img/Aquatic Animals menu.png" alt="นก"> </a>
+            <h2>สัตว์น้ำ (Aquatic Animals)</h2>
+        </div>
+
+        <div class="animal-card">
+            <a href="สัตว์ปีก.html"> <img src="img/Birds menu.png" alt="สัตว์เลื้อยคลาน"></a>
+            <h2>สัตว์ปีก (Birds)</h2>
+        </div>
+
+        <div class="animal-card">
+            <a href="สัตว์ครึ่งบกครึ่งน้ำ.html"> <img src="img/Amphibians menu.png" alt="สัตว์ครึ่งบกครึ่งน้ำ"></a>
+            <h2>สัตว์ครึ่งบกครึ่งน้ำ (Amphibians)</h2>
+        </div>
+    </div>
+   
+    </main>
+    </body>
+</html>

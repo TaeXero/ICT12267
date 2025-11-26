@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SaveEarth’s | กอริลลาภูเขา</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Kanit&display=swap" rel="stylesheet">
+    
+    <style>
+        /* ใช้ Kanit เป็นฟอนต์หลัก */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Kanit", sans-serif;  
+        }
+
+        body {
+            background-color: #f6f6f6;
+            color: #222;        
+        }
+
+        /* Navbar (โค้ดเดิมของผู้ใช้) */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #184e27;
+            color: white;
+            padding: 15px 50px;
+        }
+
+        .navbar .logo {
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+
+        .navbar ul {
+            list-style: none;
+            display: flex;
+            gap: 25px;
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .navbar a:hover,
+        .navbar a.active {
+            color: #ffd166;
+        }
+
+        /* ------------------ NEW CSS: CONTENT STYLING ------------------ */
+        .animal-detail {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 30px;
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .detail-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .detail-header h1 {
+            color: #184e27;
+            font-size: 2.8em;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        .status-badge {
+            display: inline-block;
+            background-color: #c9302c; /* Danger Red for Critically Endangered */
+            color: white;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 1.1em;
+            margin-top: 10px;
+        }
+
+        .detail-image {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 30px;
+        }
+
+        .detail-section h2 {
+            color: #184e27;
+            font-size: 1.8em;
+            border-left: 5px solid #ffd166;
+            padding-left: 10px;
+            margin-bottom: 15px;
+        }
+
+        .detail-section p {
+            line-height: 1.8;
+            margin-bottom: 20px;
+            text-align: justify;
+        }
+
+        .fact-list {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .fact-list li {
+            margin-bottom: 10px;
+            padding-left: 25px;
+            position: relative;
+            line-height: 1.6;
+            font-weight: 500;
+        }
+
+        .fact-list li::before {
+            content: '🐾'; /* ใช้เท้าสัตว์ */
+            position: absolute;
+            left: 0;
+            color: #184e27;
+        }
+    </style>
+
+</head>
+
+<body>
+    <header class="navbar">
+        <div class="logo">SaveEarth’s</div>
+        <nav>
+            <ul>
+                <li><a href="index.html">หน้าแรก</a></li>
+                <li><a href="animals.html" class="active">รายชื่อสัตว์</a></li>
+                <li><a href="contact.html">ติดต่อ</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main class="animal-detail">
+        <div class="detail-header">
+            <h1>กอริลลาภูเขา (Mountain Gorilla)</h1>
+            <div class="status-badge">สถานะ IUCN: ใกล้สูญพันธุ์ขั้นวิกฤต (Critically Endangered – CR)</div>
+        </div>
+        
+        <img src="https://c.files.bbci.co.uk/E4C5/production/_125556585_2gorillastill.jpg" alt="ภาพเสือดาวอามูร์" class="detail-image"/>
+
+        <div class="detail-section">
+            <h2>ความเป็นมาและถิ่นที่อยู่</h2>
+            <p>
+                <strong>กอริลลาภูเขา (Gorilla beringei beringei)</strong> เป็นชนิดย่อยของกอริลลาตะวันออก และเป็นไพรเมตที่ใหญ่ที่สุดในโลก พบเฉพาะในพื้นที่ภูเขาไฟและป่าหมอกของแอฟริกากลาง ได้แก่:
+อุทยานแห่งชาติวอลแคนอส (รวันดา)
+อุทยานแห่งชาติวิรุงกา (คองโก)
+อุทยานแห่งชาติบวินดี (ยูกันดา)
+ถิ่นอาศัยอยู่ในป่าบนภูเขาสูง 2,200–4,300 เมตร อากาศเย็น ชื้น และอุดมด้วยพืชพรรณ
+
+
+
+ลักษณะและพฤติกรรมเด่น
+            </p>
+        </div>
+
+        <div class="detail-section">
+            <h2>ลักษณะและพฤติกรรมเด่น</h2>
+            <ul class="fact-list">
+                <li><strong>ความพิเศษของเขา:</strong> ขนหนาแน่นกว่ากอริลลาชนิดอื่นเพื่อทนต่ออากาศเย็น เพศผู้โตเต็มวัยมี “แถบเงิน” บนหลัง เรียกว่า Silverback</li>
+                <li><strong>ความพิเศษทางพฤติกรรม:</strong> อยู่เป็นครอบครัว นำโดย Silverback อุปนิสัยสงบ ไม่ก้าวร้าวหากไม่ถูกรบกวน ใช้เสียง ท่าทาง และการตบหน้าอกเพื่อสื่อสาร</li>
+                <li><strong>น้ำหนัก:</strong> น้ำหนักเพศผู้ประมาณ 140–200 กก., เพศเมีย 70–100 กก.</li>
+            </ul>
+        </div>
+        
+        <div class="detail-section">
+            <h2>ภัยคุกคามและการอนุรักษ์</h2>
+            <p>การล่า และกับดักสัตว์ในป่า
+การสูญเสียพื้นที่ป่า จากสงคราม ความไม่มั่นคง และการบุกรุกพื้นที่
+โรคที่มาจากมนุษย์ เช่น ไข้หวัด (ไวต่อโรคมาก)
+
+
+            </p>
+        </div>
+        <div class="detail-section">
+            <h2>การอนุรักษ์</h2>
+            <p>การลาดตระเวนต่อต้านการล่าอย่างเข้มงวด
+การดูแลสุขภาพและตรวจโรคของทั้งคนและกอริลลา
+โครงการท่องเที่ยวเชิงอนุรักษ์ (Gorilla trekking) ที่สร้างรายได้ให้ชุมชนท้องถิ่น
+
+            </p>
+        </div>
+    </main>
+    </body>
+</html>
