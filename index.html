@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>SaveEarth’s | Home</title>
 
-  <!-- เชื่อมต่อไฟล์ CSS -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.2/dist/chart.umd.min.js"></script>
   <link rel="stylesheet" href="style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Kanit&display=swap" rel="stylesheet">
 </head>
@@ -18,7 +18,7 @@
       <ul>
         <li><a href="index.html" class="active">หน้าแรก</a></li>
         <li><a href="animals.html">รายชื่อสัตว์</a></li>
-
+        <li><a href="ทดสอบ.html">ทดสอบ</a></li>
         <li><a href="contact.html">ติดต่อ</a></li>
       </ul>
     </nav>
@@ -76,7 +76,36 @@
         </div>
         </div>
       </div>
-    </section>
+      <section id="stats-counter" style="padding: 60px 20px; text-align: center; background-color: #e0f7fa;">
+    <h2>🌍 ตัวเลขความจริง: สถานการณ์เร่งด่วน</h2>
+    <p style="margin-bottom: 30px; color: #555;">การอนุรักษ์คือการแข่งขันกับเวลา</p>
+    
+    <div id="counter-container" style="display: flex; justify-content: space-around; flex-wrap: wrap;">
+        
+        <div class="stat-box" style="margin: 15px; padding: 20px; background-color: white; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); min-width: 250px;">
+            <h3 id="stat1" class="counter-num" style="font-size: 3em; color: #D32F2F; margin: 0;">0</h3>
+            <p style="margin-top: 10px; font-weight: bold;">ชนิดที่กำลังวิกฤต (CR/EN)</p>
+        </div>
+
+        <div class="stat-box" style="margin: 15px; padding: 20px; background-color: white; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); min-width: 250px;">
+            <h3 id="stat2" class="counter-num" style="font-size: 3em; color: #00796B; margin: 0;">0</h3>
+            <p style="margin-top: 10px; font-weight: bold;">ล้านเฮกตาร์ป่าไม้หายไป (ต่อปี)</p>
+        </div>
+
+        <div class="stat-box" style="margin: 15px; padding: 20px; background-color: white; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); min-width: 250px;">
+            <h3 id="stat3" class="counter-num" style="font-size: 3em; color: #FF9800; margin: 0;">0</h3>
+            <p style="margin-top: 10px; font-weight: bold;">ชนิดที่ต้องการความช่วยเหลือ</p>
+        </div>
+    </div>
+</section>
+<section id="status-chart-section" style="padding: 60px 20px; text-align: center; background-color: #f7f7f7;">
+    <h2 style="color: #184e27;">📉 ภาพรวมสถานะความเสี่ยงของสัตว์ 40 ชนิด</h2>
+    <p style="margin-bottom: 30px; color: #555;">(วิเคราะห์จากข้อมูลในหน้ารายชื่อสัตว์)</p>
+    
+    <div style="max-width: 500px; margin: 0 auto;">
+        <canvas id="conservationChart"></canvas>
+    </div>
+</section>
   </main>
 
   <!-- ส่วนท้าย -->
@@ -85,6 +114,6 @@
   </footer>
 
   <!-- เชื่อมต่อไฟล์ JavaScript -->
-  <script src="script.js"></script>
+  <script src="scriptindex.js"></script>
 </body>
 </html>

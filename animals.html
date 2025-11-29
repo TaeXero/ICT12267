@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>SaveEarth’s | เสือดาวอามูร์</title>
+    <title>SaveEarth’s | รายชื่อสัตว์</title>
 
     <link href="https://fonts.googleapis.com/css2?family=Kanit&display=swap" rel="stylesheet">
     
@@ -21,7 +21,7 @@
             color: #222;
         }
 
-        /* Navbar (โค้ดเดิมของผู้ใช้) */
+        /* Navbar */
         .navbar {
             display: flex;
             justify-content: space-between;
@@ -32,8 +32,14 @@
         }
 
         .navbar .logo {
-            font-size: 1.5em;
+            display: flex;
+            align-items: center;
+            font-size: 24px;
             font-weight: bold;
+        }
+        .navbar .logo img {
+            height: 1em;
+            margin-right: 8px;
         }
 
         .navbar ul {
@@ -52,95 +58,148 @@
         .navbar a.active {
             color: #ffd166;
         }
-        .animal-section {
-  padding: 40px;
-  text-align: center;
-}
-
-.navbar .logo {
-    display: flex;
-    align-items: center;
-    font-size: 24px; /* ปรับขนาดฟอนต์ SaveEarth’s ได้ที่นี่ */
-}
-
-.navbar .logo img {
-    height: 1em; /* ให้สูงเท่ากับฟอนต์ SaveEarth’s */
-    margin-right: 8px; /* เว้นระยะนิดหน่อย */
-}
-
-
-main {
+        
+        main {
             font-family: Arial, sans-serif;
             background-color: #f8f8f8;
             margin: 0;
             padding: 20px;
             display: flex;
             flex-direction: column;
-            align-items: center; /* จัดให้อยู่ตรงกลางหน้า */
+            align-items: center;
         }
 
-        header h1 {
-            font-size: 2em;
-            color: #333;
-            margin-bottom: 30px;
+        /* สไตล์สำหรับปุ่มกรอง */
+        .filter-btn {
+            background-color: #00796B; 
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            margin: 5px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .filter-btn:hover {
+            background-color: #004d40;
+        }
+        .filter-btn.active {
+            background-color: #FF9800; 
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+        }
+
+        /* สไตล์สำหรับ Animal Card (ส่วน Search/Filter) */
+        .animal-card {
+            width: 300px;
+            margin: 15px;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
             text-align: center;
-            font-weight: bold;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-sizing: border-box;
         }
-
-        /* ภาชนะหลักสำหรับจัดเรียงรูปภาพ */
+        .animal-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+        }
+        .animal-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+        
+        /* สไตล์สีสำหรับสถานะอนุรักษ์ */
+        .status-cr { color: #D32F2F; font-weight: bold; } /* Critically Endangered (วิกฤต - แดง) */
+        .status-en { color: #FBC02D; font-weight: bold; } /* Endangered (ใกล้สูญพันธุ์ - เหลือง) */
+        .status-vu { color: #4CAF50; font-weight: bold; } /* Vulnerable (เสี่ยง - เขียว) */
+        .status-nt { color: #1E88E5; font-weight: bold; } /* Near Threatened (เกือบถูกคุกคาม - น้ำเงิน) */
+        .status-lc { color: #7CB342; font-weight: bold; } /* Least Concern (เสี่ยงน้อย - เขียวอ่อน) */
+        
+        /* 🎨 สไตล์สำหรับ Type Card (ส่วนประเภทของสัตว์) - ถูกเพิ่ม/แก้ไขแล้ว */
         .animal-container {
             display: grid;
-            /* สร้างตาราง 2 คอลัมน์ (column) ที่มีขนาดเท่ากัน */
             grid-template-columns: 1fr 1fr;
-            /* กำหนดระยะห่างระหว่างรูปภาพทั้งแนวตั้งและแนวนอน */
             gap: 30px; 
-            /* จำกัดความกว้างสูงสุดของคอนเทนเนอร์เพื่อให้ดูดีบนหน้าจอขนาดใหญ่ */
             max-width: 1200px; 
             width: 100%;
+            margin-top: 20px; /* เพิ่มระยะห่างจากส่วนด้านบน */
         }
-
-        /* สไตล์สำหรับกล่องรูปภาพแต่ละกล่อง */
-        .animal-card {
+        .type-card {
             background-color: #fff;
             border-radius: 8px;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
             overflow: hidden; 
             text-align: center;
             transition: transform 0.3s ease;
+            cursor: pointer; /* เพิ่ม cursor เพื่อให้รู้ว่าคลิกได้ */
         }
 
-        /* เมื่อนำเมาส์ไปชี้ที่รูปภาพ */
-        .animal-card:hover {
+        .type-card:hover {
             transform: translateY(-5px); 
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
         }
 
-        /* สไตล์สำหรับรูปภาพ */
-        .animal-card img {
+        .type-card img {
             width: 100%; 
-            /* ความสูงของรูปภาพที่กำหนดเพื่อให้ดูใหญ่ */
             height: 350px; 
-            object-fit: cover; /* ครอบตัดรูปภาพให้เต็มพื้นที่ */
+            object-fit: cover;
             display: block;
         }
 
-        /* สไตล์สำหรับหัวข้อ */
-        .animal-card h2 {
+        .type-card h2 {
             font-size: 1.5em;
             color: #007bff;
             padding: 15px 10px;
             margin: 0;
             text-transform: uppercase;
         }
+        
+        /* สำหรับมือถือ */
+        @media (max-width: 600px) {
+            .animal-card {
+                width: 100%;
+                margin: 10px 0;
+            }
+            .animal-container {
+                grid-template-columns: 1fr; /* ให้แสดงเป็นคอลัมน์เดียวบนมือถือ */
+            }
+        }
+        /* -------------------- สไตล์สำหรับปุ่มเลื่อนขึ้น/ลง -------------------- */
 
-        header h1 {
-    font-size: 2em; /* ขนาดตัวอักษรใหญ่ */
-    color: #333;
-    margin-bottom: 30px;
-    text-align: center; /* จัดกึ่งกลาง */
-    font-weight: bold;
+#scroll-buttons-container {
+    position: fixed; /* ทำให้ปุ่มลอยอยู่กับที่ */
+    bottom: 20px; /* ระยะห่างจากขอบด้านล่าง */
+    right: 20px; /* ระยะห่างจากขอบด้านขวา */
+    z-index: 1000; /* ทำให้ปุ่มอยู่เหนือองค์ประกอบอื่น ๆ */
 }
 
+#scrollToTopBtn, #scrollToBottomBtn {
+    display: none; /* ซ่อนปุ่มไว้ก่อน (จะแสดงเมื่อมีการเลื่อนหน้าจอ) */
+    background-color: #184e27; /* สีพื้นหลัง: เขียวเข้ม */
+    color: white;
+    border: none;
+    padding: 12px 15px;
+    border-radius: 50%; /* ทำให้ปุ่มเป็นวงกลม */
+    cursor: pointer;
+    font-size: 1.2em;
+    margin-top: 10px; /* เว้นระยะระหว่างปุ่มขึ้นกับปุ่มลง */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    transition: background-color 0.3s, opacity 0.3s;
+}
+
+#scrollToTopBtn:hover, #scrollToBottomBtn:hover {
+    background-color: #4CAF50; /* สีอ่อนลงเมื่อนำเมาส์มาวาง */
+}
+
+#scrollToBottomBtn {
+    /* จัดให้ปุ่มลงอยู่ด้านล่างปุ่มขึ้น */
+    display: block; /* ปุ่มลงจะแสดงตลอดเวลา (หรือตามเงื่อนไข JS) */
+    margin-top: 10px;
+}
     </style>
 
 </head>
@@ -152,35 +211,527 @@ main {
             <ul>
                 <li><a href="index.html">หน้าแรก</a></li>
                 <li><a href="animals.html" class="active">รายชื่อสัตว์</a></li>
+                <li><a href="ทดสอบ.html">ทดสอบ</a></li>
                 <li><a href="contact.html">ติดต่อ</a></li>
             </ul>
         </nav>
     </header>
     <main>
-        <h1>ประเภทของสัตว์ (ANIMALS TYPES)</h1>
-    <div class="animal-container">
-        <div class="animal-card">
-            <a href="สัตว์บก.html"> <img src="img/Land Animals menu.png" alt="สัตว์บก (Land Animals)"> </a>
-            <h2>สัตว์บก (Land Animals)
-</h2>
+        <div id="filter-area" style="text-align: center; padding: 20px; background-color: #e0f2f1; width: 100%;">
+            <h2>ค้นหาและกรองรายชื่อสัตว์</h2>
+            
+            <input type="text" id="search-input" onkeyup="filterAnimals()" placeholder="พิมพ์ชื่อสัตว์ที่ต้องการค้นหา..." 
+                    style="width: 80%; max-width: 400px; padding: 10px; margin-bottom: 20px; border: 1px solid #ccc; border-radius: 5px;">
+            
+            <div id="filter-buttons">
+                <button class="filter-btn active" data-filter="all" onclick="filterAnimals('all')">ทั้งหมด</button>
+                <button class="filter-btn" data-filter="CR" onclick="filterAnimals('CR')">วิกฤต (CR)</button>
+                <button class="filter-btn" data-filter="EN" onclick="filterAnimals('EN')">ใกล้สูญพันธุ์ (EN)</button>
+                <button class="filter-btn" data-filter="VU" onclick="filterAnimals('VU')">เสี่ยง (VU)</button>
+                <button class="filter-btn" data-filter="NT" onclick="filterAnimals('NT')">เกือบถูกคุกคาม (NT)</button>
+                <button class="filter-btn" data-filter="LC" onclick="filterAnimals('LC')">เสี่ยงน้อย (LC)</button>
+            </div>
         </div>
 
-        <div class="animal-card">
-            <a href="สัตว์น้ำ.html"> <img src="img/Aquatic Animals menu.png" alt="นก"> </a>
-            <h2>สัตว์น้ำ (Aquatic Animals)</h2>
-        </div>
+        <div id="animal-list" style="display: flex; flex-wrap: wrap; justify-content: center; padding: 20px;">
+            
+            <div class="animal-card" data-status="EN" data-name="เสือโคร่ง" data-type="mammal">
+                <a href="Tiger.html" style="text-decoration: none; color: inherit;">
+                    <img src="img/Tiger.jpg" alt="เสือโคร่ง">
+                    <h3>เสือโคร่ง (Tiger)</h3>
+                    <p>สถานะ: <span class="status-en">ใกล้สูญพันธุ์ (EN)</span></p>
+                    <p>ถิ่นอาศัย: เอเชีย</p>
+                </a>
+            </div>
 
-        <div class="animal-card">
-            <a href="สัตว์ปีก.html"> <img src="img/Birds menu.png" alt="สัตว์เลื้อยคลาน"></a>
-            <h2>สัตว์ปีก (Birds)</h2>
-        </div>
+            <div class="animal-card" data-status="CR" data-name="แรดชวา" data-type="mammal">
+                <a href="Javan Rhino.html" style="text-decoration: none; color: inherit;">
+                    <img src="img/Javan Rhino.jpeg" alt="แรดชวา">
+                    <h3>แรดชวา (Javan Rhino)</h3>
+                    <p>สถานะ: <span class="status-cr">วิกฤต (CR)</span></p>
+                    <p>ถิ่นอาศัย: อินโดนีเซีย</p>
+                </a>
+            </div>
+            
+            <div class="animal-card" data-status="VU" data-name="แพนด้ายักษ์" data-type="mammal">
+                <a href="Giant Panda.html" style="text-decoration: none; color: inherit;">
+                    <img src="img/Giant Panda.jpg" alt="แพนด้ายักษ์">
+                    <h3>แพนด้ายักษ์ (Giant Panda)</h3>
+                    <p>สถานะ: <span class="status-vu">เสี่ยง (VU)</span></p>
+                    <p>ถิ่นอาศัย: จีน</p>
+                </a>
+            </div>
 
-        <div class="animal-card">
-            <a href="สัตว์ครึ่งบกครึ่งน้ำ.html"> <img src="img/Amphibians menu.png" alt="สัตว์ครึ่งบกครึ่งน้ำ"></a>
-            <h2>สัตว์ครึ่งบกครึ่งน้ำ (Amphibians)</h2>
-        </div>
+            <div class="animal-card" data-status="CR" data-name="เสือดาวอามูร์" data-type="mammal">
+                <a href="amur-leopard.html" style="text-decoration: none; color: inherit;">
+                    <img src="img/amur-leopard.jpg" alt="เสือดาวอามูร์">
+                    <h3>เสือดาวอามูร์ (Amur Leopard)</h3>
+                    <p>สถานะ: <span class="status-cr">วิกฤต (CR)</span></p>
+                    <p>ถิ่นอาศัย: รัสเซีย, จีน</p>
+                </a>
+            </div>
+
+            <div class="animal-card" data-status="EN" data-name="ช้างเอเชีย" data-type="mammal">
+                <a href="Asian Elephant.html" style="text-decoration: none; color: inherit;">
+                    <img src="img/Asian Elephant.jpg" alt="ช้างเอเชีย">
+                    <h3>ช้างเอเชีย (Asian Elephant)</h3>
+                    <p>สถานะ: <span class="status-en">ใกล้สูญพันธุ์ (EN)</span></p>
+                    <p>ถิ่นอาศัย: เอเชีย</p>
+                </a>
+            </div>
+
+            <div class="animal-card" data-status="CR" data-name="กอริลลาภูเขา" data-type="mammal">
+                <a href="Mountain Gorilla.html" style="text-decoration: none; color: inherit;">
+                    <img src="img/Mountain Gorilla.jpg" alt="กอริลลาภูเขา">
+                    <h3>กอริลลาภูเขา (Mountain Gorilla)</h3>
+                    <p>สถานะ: <span class="status-cr">วิกฤต (CR)</span></p>
+                    <p>ถิ่นอาศัย: แอฟริกา</p>
+                </a>
+            </div>
+
+            <div class="animal-card" data-status="CR" data-name="อุรังอุตังสุมาตรา" data-type="mammal">
+                <a href="Sumatran Orangutan.html" style="text-decoration: none; color: inherit;">
+                    <img src="img/Sumatran Orangutan.jpg" alt="ลิงอุรังอุตังสุมาตรา">
+                    <h3>ลิงอุรังอุตังสุมาตรา (Sumatran Orangutan)</h3>
+                    <p>สถานะ: <span class="status-cr">วิกฤต (CR)</span></p>
+                    <p>ถิ่นอาศัย: สุมาตรา</p>
+                </a>
+            </div>
+
+            <div class="animal-card" data-status="CR" data-name="ละมั่ง" data-type="mammal">
+                <a href="Saola.html" style="text-decoration: none; color: inherit;">
+                    <img src="img/Saola.jpg" alt="ละมั่ง">
+                    <h3>ละมั่ง (Saola)</h3>
+                    <p>สถานะ: <span class="status-cr">วิกฤต (CR)</span></p>
+                    <p>ถิ่นอาศัย: เวียดนาม, ลาว</p>
+                </a>
+            </div>
+
+            <div class="animal-card" data-status="EN" data-name="โอคาปิ" data-type="mammal">
+                <a href="Okapi.html" style="text-decoration: none; color: inherit;">
+                    <img src="img/Okapi.jpg" alt="โอคาปิ">
+                    <h3>โอคาปิ (Okapi)</h3>
+                    <p>สถานะ: <span class="status-en">ใกล้สูญพันธุ์ (EN)</span></p>
+                    <p>ถิ่นอาศัย: คองโก</p>
+                </a>
+            </div>
+
+            <div class="animal-card" data-status="VU" data-name="เสือจากัวร์" data-type="mammal">
+                <a href="Jaguar.html" style="text-decoration: none; color: inherit;">
+                    <img src="img/Jaguar.jpg" alt="เสือจากัวร์">
+                    <h3>เสือจากัวร์ (Jaguar)</h3>
+                    <p>สถานะ: <span class="status-vu">เสี่ยง (VU)</span></p>
+                    <p>ถิ่นอาศัย: อเมริกากลาง/ใต้</p>
+                </a>
+            </div>
+
+            <div class="animal-card" data-status="CR" data-name="แรดสุมาตรา" data-type="mammal">
+                <a href="Sumatran Rhino.html" style="text-decoration: none; color: inherit;">
+                    <img src="img/Sumatran Rhino.png" alt="แรดสุมาตรา">
+                    <h3>แรดสุมาตรา (Sumatran Rhino)</h3>
+                    <p>สถานะ: <span class="status-cr">วิกฤต (CR)</span></p>
+                    <p>ถิ่นอาศัย: สุมาตรา, บอร์เนียว</p>
+                </a>
+            </div>
+            
+            <div class="animal-card" data-status="VU" data-name="เต่ามะเฟือง" data-type="reptile">
+                <a href="Leatherback Sea Turtle.html" style="text-decoration: none; color: inherit;">
+                    <img src="img/Leatherback Sea Turtle.jpg" alt="เต่ามะเฟือง">
+                    <h3>เต่ามะเฟือง (Leatherback Sea Turtle)</h3>
+                    <p>สถานะ: <span class="status-vu">เสี่ยง (VU)</span></p>
+                    <p>ถิ่นอาศัย: ทั่วโลก (ทะเล)</p>
+                </a>
+            </div>
+
+            <div class="animal-card" data-status="VU" data-name="พะยูน" data-type="mammal">
+                <a href="Dugong.html" style="text-decoration: none; color: inherit;">
+                    <img src="img/Dugong.jpg" alt="พะยูน">
+                    <h3>พะยูน (Dugong)</h3>
+                    <p>สถานะ: <span class="status-vu">เสี่ยง (VU)</span></p>
+                    <p>ถิ่นอาศัย: อินโด-แปซิฟิก</p>
+                </a>
+            </div>
+
+            <div class="animal-card" data-status="EN" data-name="โลมาหัวบาตร" data-type="mammal">
+                <a href="Irrawaddy Dolphin.html" style="text-decoration: none; color: inherit;">
+                    <img src="img/Irrawaddy Dolphin.jpg" alt="โลมาหัวบาตร">
+                    <h3>โลมาหัวบาตร (Irrawaddy Dolphin)</h3>
+                    <p>สถานะ: <span class="status-en">ใกล้สูญพันธุ์ (EN)</span></p>
+                    <p>ถิ่นอาศัย: เอเชียตะวันออกเฉียงใต้ (น้ำจืด/น้ำเค็ม)</p>
+                </a>
+            </div>
+
+            <div class="animal-card" data-status="EN" data-name="ปลาวาฬสีน้ำเงิน" data-type="mammal">
+                <a href="Blue Whale.html" style="text-decoration: none; color: inherit;">
+                    <img src="img/Balaenoptera musculus.jpg" alt="ปลาวาฬสีน้ำเงิน"> <h3>ปลาวาฬสีน้ำเงิน (Blue Whale)</h3>
+                    <p>สถานะ: <span class="status-en">ใกล้สูญพันธุ์ (EN)</span></p>
+                    <p>ถิ่นอาศัย: มหาสมุทรทั่วโลก</p>
+                </a>
+            </div>
+            
+            <div class="animal-card" data-status="EN" data-name="ฉลามวาฬ" data-type="fish">
+                <a href="Whale Shark.html" style="text-decoration: none; color: inherit;">
+                    <img src="img/Whale Shark.jpg" alt="ฉลามวาฬ">
+                    <h3>ฉลามวาฬ (Whale Shark)</h3>
+                    <p>สถานะ: <span class="status-en">ใกล้สูญพันธุ์ (EN)</span></p>
+                    <p>ถิ่นอาศัย: ทะเลเขตร้อน</p>
+                </a>
+            </div>
+
+            <div class="animal-card" data-status="VU" data-name="ปลานกแก้วหัวโขน" data-type="fish">
+                <a href="Humphead Parrotfish.html" style="text-decoration: none; color: inherit;">
+                    <img src="img/Humphead Parrotfish.jpeg" alt="ปลานกแก้วหัวโขน">
+                    <h3>ปลานกแก้วหัวโขน (Humphead Parrotfish)</h3>
+                    <p>สถานะ: <span class="status-vu">เสี่ยง (VU)</span></p>
+                    <p>ถิ่นอาศัย: แนวปะการัง</p>
+                </a>
+            </div>
+
+            <div class="animal-card" data-status="CR" data-name="ปะการังเขากวาง" data-type="invertebrate">
+                <a href="Staghorn Coral.html" style="text-decoration: none; color: inherit;">
+                    <img src="img/Staghorn Coral.jpg" alt="ปะการังเขากวาง">
+                    <h3>ปะการังเขากวาง (Staghorn Coral)</h3>
+                    <p>สถานะ: <span class="status-cr">วิกฤต (CR)</span></p>
+                    <p>ถิ่นอาศัย: ทะเลแคริบเบียน</p>
+                </a>
+            </div>
+
+            <div class="animal-card" data-status="CR" data-name="ปลาฉลามครีบขาว" data-type="fish">
+                <a href="Oceanic Whitetip Shark.html" style="text-decoration: none; color: inherit;">
+                    <img src="img/Oceanic Whitetip Shark.png" alt="ปลาฉลามครีบขาวมหาสมุทร">
+                    <h3>ปลาฉลามครีบขาวมหาสมุทร (Oceanic Whitetip Shark)</h3>
+                    <p>สถานะ: <span class="status-cr">วิกฤต (CR)</span></p>
+                    <p>ถิ่นอาศัย: มหาสมุทรเขตร้อน</p>
+                </a>
+            </div>
+
+            <div class="animal-card" data-status="VU" data-name="ปลาฉลามเสือดาว" data-type="fish">
+                <a href="Zebra Shark.html" style="text-decoration: none; color: inherit;">
+                    <img src="img/Zebra Shark.jpg" alt="ปลาฉลามเสือดาว">
+                    <h3>ปลาฉลามเสือดาว (Zebra Shark)</h3>
+                    <p>สถานะ: <span class="status-vu">เสี่ยง (VU)</span></p>
+                    <p>ถิ่นอาศัย: อินโด-แปซิฟิก</p>
+                </a>
+            </div>
+
+            <div class="animal-card" data-status="VU" data-name="ปลาโลมาปากขวด" data-type="mammal">
+                <a href="Bottlenose Dolphin.html" style="text-decoration: none; color: inherit;">
+                    <img src="img/Bottlenose Dolphin.jpg" alt="ปลาโลมาปากขวด">
+                    <h3>ปลาโลมาปากขวด (Bottlenose Dolphin)</h3>
+                    <p>สถานะ: <span class="status-vu">เสี่ยง (VU)</span></p>
+                    <p>ถิ่นอาศัย: มหาสมุทรทั่วโลก</p>
+                </a>
+            </div>
+
+            <div class="animal-card" data-status="VU" data-name="ปลาฉลามครีบดำ" data-type="fish">
+                <a href="Black-tip Reef Shark.html" style="text-decoration: none; color: inherit;">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQRV-dnwlvWP3RswSU45fU8ofQSgrktu0u9Df86xuzdFbr_j99fmdq-_AXK86uQX7baUWWL4HzjmYEjbhV9mrKqbTgTu252mv4T4eN-QVs&s=10" alt="ปลาฉลามครีบดำ">
+                    <h3>ปลาฉลามครีบดำ (Blacktip Reef Shark)</h3>
+                    <p>สถานะ: <span class="status-vu">เสี่ยง (VU)</span></p>
+                    <p>ถิ่นอาศัย: แนวปะการัง</p>
+                </a>
+            </div>
+
+            <div class="animal-card" data-status="CR" data-name="นกเงือกหัวแรด" data-type="bird">
+                <a href="Helmeted Hornbill.html" style="text-decoration: none; color: inherit;">
+                    <img src="img/Helmeted Hornbill.jpg" alt="นกเงือกหัวแรด">
+                    <h3>นกเงือกหัวแรด (Helmeted Hornbill)</h3>
+                    <p>สถานะ: <span class="status-cr">วิกฤต (CR)</span></p>
+                    <p>ถิ่นอาศัย: เอเชียตะวันออกเฉียงใต้</p>
+                </a>
+            </div>
+
+            <div class="animal-card" data-status="VU" data-name="นกกะเรียนญี่ปุ่น" data-type="bird">
+                <a href="Red-crowned Crane.html" style="text-decoration: none; color: inherit;">
+                    <img src="img/Red-crowned Crane.jpg" alt="นกกะเรียนญี่ปุ่น">
+                    <h3>นกกะเรียนญี่ปุ่น (Red-crowned Crane)</h3>
+                    <p>สถานะ: <span class="status-vu">เสี่ยง (VU)</span></p>
+                    <p>ถิ่นอาศัย: เอเชียตะวันออก</p>
+                </a>
+            </div>
+
+            <div class="animal-card" data-status="LC" data-name="นกอินทรีหัวขาว" data-type="bird">
+                <a href="Bald Eagle.html" style="text-decoration: none; color: inherit;">
+                    <img src="https://f.ptcdn.info/045/068/000/q5dams7eoFyZzTVlBeI-o.jpg" alt="นกอินทรีหัวขาว">
+                    <h3>นกอินทรีหัวขาว (Bald Eagle)</h3>
+                    <p>สถานะ: <span class="status-lc">เสี่ยงน้อย (LC)</span></p>
+                    <p>ถิ่นอาศัย: อเมริกาเหนือ</p>
+                </a>
+            </div>
+
+            <div class="animal-card" data-status="EN" data-name="นกช้อนหอยแดง" data-type="bird">
+                <a href="Black-faced Spoonbill.html" style="text-decoration: none; color: inherit;">
+                    <img src="img/Black-faced Spoonbill.jpg" alt="นกช้อนหอยแดง">
+                    <h3>นกช้อนหอยแดง (Black-faced Spoonbill)</h3>
+                    <p>สถานะ: <span class="status-en">ใกล้สูญพันธุ์ (EN)</span></p>
+                    <p>ถิ่นอาศัย: เอเชียตะวันออก</p>
+                </a>
+            </div>
+
+            <div class="animal-card" data-status="VU" data-name="นกกะพ้อ" data-type="bird">
+                <a href="Sarus Crane.html" style="text-decoration: none; color: inherit;">
+                    <img src="img/Sarus Crane.jpg" alt="นกกะพ้อ">
+                    <h3>นกกะพ้อ (Sarus Crane)</h3>
+                    <p>สถานะ: <span class="status-vu">เสี่ยง (VU)</span></p>
+                    <p>ถิ่นอาศัย: เอเชียใต้/ตะวันออกเฉียงใต้</p>
+                </a>
+            </div>
+
+            <div class="animal-card" data-status="CR" data-name="นกแก้วคาคาโป" data-type="bird">
+                <a href="Kakapo.html" style="text-decoration: none; color: inherit;">
+                    <img src="img/Kakapo.jpg" alt="นกแก้วคาคาโป">
+                    <h3>นกแก้วคาคาโป (Kakapo)</h3>
+                    <p>สถานะ: <span class="status-cr">วิกฤต (CR)</span></p>
+                    <p>ถิ่นอาศัย: นิวซีแลนด์</p>
+                </a>
+            </div>
+
+            <div class="animal-card" data-status="CR" data-name="นกกระเรียนไซบีเรีย" data-type="bird">
+                <a href="Siberian Crane.html" style="text-decoration: none; color: inherit;">
+                    <img src="img/Siberian Crane.jpg" alt="นกกระเรียนไซบีเรีย">
+                    <h3>นกกระเรียนไซบีเรีย (Siberian Crane)</h3>
+                    <p>สถานะ: <span class="status-cr">วิกฤต (CR)</span></p>
+                    <p>ถิ่นอาศัย: ไซบีเรีย</p>
+                </a>
+            </div>
+
+            <div class="animal-card" data-status="NT" data-name="นกเงือกสีน้ำตาล" data-type="bird">
+                <a href="Brown Hornbill.html" style="text-decoration: none; color: inherit;">
+                    <img src="img/Brown Hornbill.jpg" alt="นกเงือกสีน้ำตาล">
+                    <h3>นกเงือกสีน้ำตาล (Brown Hornbill)</h3>
+                    <p>สถานะ: <span class="status-nt">เกือบถูกคุกคาม (NT)</span></p>
+                    <p>ถิ่นอาศัย: เอเชียใต้/ตะวันออกเฉียงใต้</p>
+                </a>
+            </div>
+
+            <div class="animal-card" data-status="LC" data-name="นกทูแคนเกราะ" data-type="bird">
+                <a href="Toco Toucan.html" style="text-decoration: none; color: inherit;">
+                    <img src="img/Toco Toucan.jpg" alt="นกทูแคนเกราะ">
+                    <h3>นกทูแคนเกราะ (Toco Toucan)</h3>
+                    <p>สถานะ: <span class="status-lc">เสี่ยงน้อย (LC)</span></p>
+                    <p>ถิ่นอาศัย: อเมริกาใต้</p>
+                </a>
+            </div>
+
+            <div class="animal-card" data-status="EN" data-name="นกยูงลายขวาง" data-type="bird">
+                <a href="Green Peafowl.html" style="text-decoration: none; color: inherit;">
+                    <img src="img/Green Peafowl.jpg" alt="นกยูงลายขวาง">
+                    <h3>นกยูงลายขวาง (Green Peafowl)</h3>
+                    <p>สถานะ: <span class="status-en">ใกล้สูญพันธุ์ (EN)</span></p>
+                    <p>ถิ่นอาศัย: เอเชียตะวันออกเฉียงใต้</p>
+                </a>
+            </div>
+
+            <div class="animal-card" data-status="NT" data-name="นกฟลามิงโก" data-type="bird">
+                <a href="นกฟลามิงโก.html" style="text-decoration: none; color: inherit;">
+                    <img src="https://t1.blockdit.com/photos/2020/03/5e5dac142977350d60f5f381_800x0xcover_bPBJL9FQ.jpg" alt="นกฟลามิงโก">
+                    <h3>นกฟลามิงโกบางสายพันธุ์ (Flamingo)</h3>
+                    <p>สถานะ: <span class="status-nt">เกือบถูกคุกคาม (NT)</span></p>
+                    <p>ถิ่นอาศัย: ทั่วโลก (ขึ้นอยู่กับชนิด)</p>
+                </a>
+            </div>
+
+            <div class="animal-card" data-status="LC" data-name="กบลูกศรพิษ" data-type="amphibian">
+                <a href="Poison Dart Frog.html" style="text-decoration: none; color: inherit;">
+                    <img src="img/Poison Dart Frog.jpg" alt="กบลูกศรพิษ">
+                    <h3>กบลูกศรพิษ (Poison Dart Frog)</h3>
+                    <p>สถานะ: <span class="status-lc">เสี่ยงน้อย (LC)</span></p>
+                    <p>ถิ่นอาศัย: อเมริกากลาง/ใต้</p>
+                </a>
+            </div>
+
+            <div class="animal-card" data-status="CR" data-name="ซาลาแมนเดอร์ยักษ์จีน" data-type="amphibian">
+                <a href="Chinese Giant Salamander.html" style="text-decoration: none; color: inherit;">
+                    <img src="img/Chinese Giant Salamander.jpg" alt="ซาลาแมนเดอร์ยักษ์จีน">
+                    <h3>ซาลาแมนเดอร์ยักษ์จีน (Chinese Giant Salamander)</h3>
+                    <p>สถานะ: <span class="status-cr">วิกฤต (CR)</span></p>
+                    <p>ถิ่นอาศัย: จีน</p>
+                </a>
+            </div>
+
+            <div class="animal-card" data-status="LC" data-name="กบหัวค้อน" data-type="amphibian">
+                <a href="Hammerhead Toad.html" style="text-decoration: none; color: inherit;">
+                    <img src="https://mpics.mgronline.com/pics/Images/555000006254702.JPEG" alt="กบหัวค้อน">
+                    <h3>กบหัวค้อน (Hammerhead Toad)</h3>
+                    <p>สถานะ: <span class="status-lc">เสี่ยงน้อย (LC)</span></p>
+                    <p>ถิ่นอาศัย: แอฟริกา</p>
+                </a>
+            </div>
+
+            <div class="animal-card" data-status="VU" data-name="ซาลาแมนเดอร์เสือ" data-type="amphibian">
+                <a href="Tiger Salamander.html" style="text-decoration: none; color: inherit;">
+            <img src="img/Tiger Salamander.jpg" alt="ซาลาแมนเดอร์เสือ">
+            <h3>ซาลาแมนเดอร์เสือ (Tiger Salamander)</h3>
+            <p>สถานะ: <span class="status-vu">เสี่ยง (VU)</span></p>
+            <p>ถิ่นอาศัย: อเมริกาเหนือ</p>
+        </a>
     </div>
-   
+
+    <div class="animal-card" data-status="CR" data-name="คางคกฮารเลควิน" data-type="amphibian">
+        <a href="Harlequin Toad.html" style="text-decoration: none; color: inherit;">
+            <img src="img/Harlequin Toad.jpg" alt="คางคกฮารเลควิน">
+            <h3>คางคกฮารเลควิน (Harlequin Toad)</h3>
+            <p>สถานะ: <span class="status-cr">วิกฤต (CR)</span></p>
+            <p>ถิ่นอาศัย: อเมริกากลาง/ใต้</p>
+        </a>
+    </div>
+
+    <div class="animal-card" data-status="CR" data-name="กบไททานิค" data-type="amphibian">
+        <a href="Titicaca Water Frog.html" style="text-decoration: none; color: inherit;">
+            <img src="img/Titicaca Water Frog.jpg" alt="กบไททานิค">
+            <h3>กบไททานิค (Titicaca Water Frog)</h3>
+            <p>สถานะ: <span class="status-cr">วิกฤต (CR)</span></p>
+            <p>ถิ่นอาศัย: ทะเลสาบ Titicaca</p>
+        </a>
+    </div>
+
+    <div class="animal-card" data-status="NT" data-name="กบแก้ว" data-type="amphibian">
+        <a href="Glass Frog.html" style="text-decoration: none; color: inherit;">
+            <img src="img/Glass Frog.jpg" alt="กบแก้ว">
+            <h3>กบแก้ว (Glass Frog)</h3>
+            <p>สถานะ: <span class="status-nt">เกือบถูกคุกคาม (NT)</span></p>
+            <p>ถิ่นอาศัย: อเมริกากลาง/ใต้</p>
+        </a>
+    </div>
+</div>
+    
+</div>
+    </div>
+            </div>
+        
+        <h1>ประเภทของสัตว์ (ANIMALS TYPES)</h1>
+        <div class="animal-container">
+            
+            <div class="type-card">
+                <a href="สัตว์บก.html"> <img src="img/Land Animals menu.png" alt="สัตว์บก (Land Animals)"> </a>
+                <h2>สัตว์บก (Land Animals)</h2>
+            </div>
+
+            <div class="type-card">
+                <a href="สัตว์น้ำ.html"> <img src="img/Aquatic Animals menu.png" alt="นก"> </a>
+                <h2>สัตว์น้ำ (Aquatic Animals)</h2>
+            </div>
+
+            <div class="type-card">
+                <a href="สัตว์ปีก.html"> <img src="img/Birds menu.png" alt="สัตว์เลื้อยคลาน"></a>
+                <h2>สัตว์ปีก (Birds)</h2>
+            </div>
+
+            <div class="type-card">
+                <a href="สัตว์ครึ่งบกครึ่งน้ำ.html"> <img src="img/Amphibians menu.png" alt="สัตว์ครึ่งบกครึ่งน้ำ"></a>
+                <h2>สัตว์ครึ่งบกครึ่งน้ำ (Amphibians)</h2>
+            </div>
+        </div>
+        
     </main>
-    </body>
+    <div id="scroll-buttons-container">
+    <button id="scrollToTopBtn" title="ไปด้านบนสุด">
+        &#9650; </button>
+    
+    <button id="scrollToBottomBtn" title="ไปด้านล่างสุด">
+        &#9660; </button>
+</div>
+    <script>
+        let currentFilter = 'all'; 
+
+        function filterAnimals(filterValue) {
+            
+            // 1. อัปเดตสถานะการกรองเมื่อมีการคลิกปุ่ม
+            if (filterValue) {
+                currentFilter = filterValue;
+                
+                // จัดการคลาส active ของปุ่ม
+                const filterButtons = document.querySelectorAll('.filter-btn');
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                
+                const clickedButton = document.querySelector(`.filter-btn[data-filter="${filterValue}"]`);
+                if (clickedButton) {
+                    clickedButton.classList.add('active');
+                }
+            }
+            
+            // 2. ดึงข้อความค้นหา (Search Query)
+            const searchInput = document.getElementById('search-input');
+            const searchText = searchInput.value.toLowerCase();
+            
+            // 3. ดึงรายชื่อการ์ดสัตว์ทั้งหมดที่อยู่ในส่วน animal-list เท่านั้น (สำคัญ!)
+            const animalCards = document.getElementById('animal-list').querySelectorAll('.animal-card');
+
+            // 4. วนลูปและตรวจสอบการแสดงผลของการ์ดแต่ละใบ
+            animalCards.forEach(card => {
+                // ดึงชื่อสัตว์และสถานะจาก data attribute
+                const animalName = card.getAttribute('data-name').toLowerCase();
+                const animalStatus = card.getAttribute('data-status');
+                
+                let shouldShow = true; 
+
+                // ตรวจสอบตามข้อความค้นหา
+                if (searchText && !animalName.includes(searchText)) {
+                    shouldShow = false;
+                }
+
+                // ตรวจสอบตามสถานะการกรอง
+                if (currentFilter !== 'all' && animalStatus !== currentFilter) {
+                    shouldShow = false;
+                }
+
+                // 5. แสดงผลลัพธ์
+                if (shouldShow) {
+                    card.style.display = 'block'; 
+                } else {
+                    card.style.display = 'none'; 
+                }
+            });
+        }
+        const topBtn = document.getElementById("scrollToTopBtn");
+const bottomBtn = document.getElementById("scrollToBottomBtn");
+
+// 2. ฟังก์ชันหลักสำหรับจัดการการแสดงปุ่ม
+function scrollFunction() {
+    // ถ้าผู้ใช้เลื่อนหน้าจอลงมามากกว่า 300px
+    if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+        topBtn.style.display = "block"; // แสดงปุ่มเลื่อนขึ้น
+    } else {
+        topBtn.style.display = "none"; // ซ่อนปุ่มเลื่อนขึ้น
+    }
+
+    // สำหรับปุ่มเลื่อนลง: ซ่อนปุ่มลงเมื่อถึงด้านล่างสุดของหน้าแล้ว
+    const isAtBottom = (window.innerHeight + window.scrollY) >= document.body.offsetHeight - 5; 
+    if (isAtBottom) {
+         bottomBtn.style.display = "none";
+    } else {
+        bottomBtn.style.display = "block"; // แสดงปุ่มเลื่อนลง
+    }
+
+    // หมายเหตุ: สำหรับ animals.html, ถ้าหน้าเว็บไม่ยาวมากพอ คุณอาจไม่เห็นปุ่มขึ้น
+    // และปุ่มลงจะแสดงอยู่ตลอด ยกเว้นตอนที่อยู่ด้านล่างสุด 
+}
+
+// 3. ผูกฟังก์ชันเข้ากับ Event การเลื่อนหน้าจอ
+window.onscroll = function() {
+    // ตรวจสอบว่ามีการโหลดฟังก์ชัน Quiz/Counter (ถ้า script.js ถูกใช้ร่วมกัน)
+    // แล้วรันฟังก์ชัน scrollFunction() เพิ่ม
+    scrollFunction(); 
+};
+
+// 4. ฟังก์ชันสำหรับการคลิกปุ่ม
+function scrollToTop() {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth' // เลื่อนแบบนุ่มนวล
+    });
+}
+
+function scrollToBottom() {
+    window.scrollTo({
+        top: document.body.scrollHeight, // เลื่อนไปยังความสูงทั้งหมดของ Body
+        behavior: 'smooth' // เลื่อนแบบนุ่มนวล
+    });
+}
+
+// 5. ผูกฟังก์ชันการคลิกเข้ากับปุ่ม
+topBtn.addEventListener("click", scrollToTop);
+bottomBtn.addEventListener("click", scrollToBottom);
+    </script>
+</body>
 </html>
